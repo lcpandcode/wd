@@ -3,7 +3,6 @@ package cn.cpliang.wenda.controllor;
 import cn.cpliang.wenda.model.*;
 import cn.cpliang.wenda.service.CommentService;
 import cn.cpliang.wenda.service.QuestionService;
-import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

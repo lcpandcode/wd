@@ -27,7 +27,7 @@ public class SensitiveService implements InitializingBean{
         InputStreamReader r = null;
         BufferedReader reader = null;
         try {
-            inputStream = new FileInputStream(new File("D:\\javasoft\\ideal\\workspace\\wenda\\wenda\\src\\main\\java\\cn\\cpliang\\wenda\\service\\sensitiveWord.txt"));
+            inputStream = this.getClass().getResourceAsStream("/sensitiveWord.txt");
             r = new InputStreamReader(inputStream);
             reader = new BufferedReader(r);
             String lineTest = null;

@@ -3,7 +3,6 @@ package cn.cpliang.wenda.service;
 import cn.cpliang.wenda.dao.MessageDAO;
 import cn.cpliang.wenda.model.HostHolder;
 import cn.cpliang.wenda.model.Message;
-import com.sun.scenario.effect.Offset;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
