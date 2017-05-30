@@ -40,7 +40,7 @@ public class IndexControllerDemo {
         model.addAttribute("map",map);
         List<String> list = Arrays.asList(new String [] {"aaa","bbb","ccc"});
         model.addAttribute("list",list);
-        System.out.println("tes");
+        System.out.println("tes1");
         return "test";
     }
 
