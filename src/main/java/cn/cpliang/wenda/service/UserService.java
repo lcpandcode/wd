@@ -65,7 +65,7 @@ public class UserService {
            return map;
        }
         //用户是否激活
-       if(user.getIsActive()==1){
+       if(user.getIsActive()==0){
             map.put("msg","用户尚未激活，登录邮箱进行激活操作");
             return map;
        }

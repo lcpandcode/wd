@@ -52,7 +52,7 @@ public class FollowService {
         return rtn;
     }
 
-    public long coutFollower(int entityType, int entityId) {
+    public long countFollower(int entityType, int entityId) {
         return jedisFollow.countFollower(entityType, entityId);
     }
 

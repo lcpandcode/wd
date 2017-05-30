@@ -1,5 +1,6 @@
 package cn.cpliang.wenda;
 
+import cn.cpliang.wenda.model.EntityType;
 import cn.cpliang.wenda.service.FollowService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,9 +21,10 @@ public class FollowServiceTest {
 
     @Test
     public void test1(){
-        followService.follow(1,1,2);
+        followService.follow(EntityType.ENTITY_USER,1,16);
+        /*
         followService.follow(1,1,3);
-        System.out.println(followService.coutFollower(1,1));
+        System.out.println(followService.countFollower(1,1));
 
         followService.unfollow(1,1,2);
         List<String> list_follower = followService.getFollowerList(1,1,0,2);
@@ -37,7 +39,7 @@ public class FollowServiceTest {
         }
 
         System.out.println(followService.coutFollowee(2,1));
-        //System.out.println(followService.coutFollower(1,1));
+        //System.out.println(followService.coutFollower(1,1));*/
     }
 
 }

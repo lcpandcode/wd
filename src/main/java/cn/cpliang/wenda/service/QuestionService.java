@@ -27,26 +27,27 @@ public class QuestionService {
     HostHolder hostHolder;
     //如果用户没有登录，给个匿名用户id给他，默认匿名用户id为1
     private final int ANONYM_DEFAULT_ID = 1;
-    public Question getQuestionById(int id){
+
+    public Question getQuestionById(int id) {
         return questionDAO.selectQuestionById(id);
     }
 
-    public List<Question> selectLatestQuestion(int userId,int offset,int limit){
-       return questionDAO.selectLatestQuestions(userId,offset,limit);
+    public List<Question> selectLatestQuestion(int userId, int offset, int limit) {
+        return questionDAO.selectLatestQuestions(userId, offset, limit);
     }
 
-    public Map<String,Object> addQuestion(String title, String content){
-        Map<String ,Object> map = new HashMap<>();
+    public Map<String, Object> addQuestion(String title, String content) {
+        Map<String, Object> map = new HashMap<>();
         int userId = ANONYM_DEFAULT_ID;
-        if(hostHolder.getUser()!=null){
+        if (hostHolder.getUser() != null) {
             userId = hostHolder.getUser().getId();
         }
         //特殊字符以及敏感字符过滤
         //1、判断是否为空，null
-        if(content==null || title==null
-                || StringUtils.isBlank(title) || StringUtils.isBlank(content)){
-            map.put("msg","内容或标题不能为空");
-            map.put("code","1");//1代表内容非法
+        if (content == null || title == null
+                || StringUtils.isBlank(title) || StringUtils.isBlank(content)) {
+            map.put("msg", "内容或标题不能为空");
+            map.put("code", "1");//1代表内容非法
             return map;
         }
         //2、过滤特殊字符（js语句以及html）
@@ -67,12 +68,17 @@ public class QuestionService {
 
 
     //更新评论数目
-    public int updateCommentCountById(int count,int questionId){
-        return questionDAO.updateCommentCountById(count,questionId);
+    public int updateCommentCountById(int count, int questionId) {
+        return questionDAO.updateCommentCountById(count, questionId);
+    }
+
+    //根据用户id统计用户提问次数
+    public int countQuestionByUserId(int userId) {
+        return questionDAO.countQuestionByUserId(userId);
     }
 
 
-    public static void main(String [] arrgs){
+    public static void main(String[] arrgs) {
         System.out.println(StringUtils.isEmpty(null));
         System.out.println(StringUtils.isEmpty(""));
         String hehe = "<script>alert('haha')</script>";

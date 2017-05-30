@@ -28,14 +28,23 @@ public class IndexController {
     FollowService followService;
     @RequestMapping(path={"/index","/"},method = {RequestMethod.GET})
     public String index(Model model){
+        //查看是否登录
+        User user = hostHolder.getUser();
+        if(user==null){
+            //用户尚未登录，则读取最新的十条问题即可
+            model.addAttribute("vos",getQuestions(0,0,10));
+            return "indexNotLogin";
+        }
         model.addAttribute("vos",getQuestions(0,0,11));
         //读取关注相关信息
 
-        return "index";
+        return String.format("/user/%d",user.getId());
     }
 
     @RequestMapping(path={"/user/{userId}"},method = {RequestMethod.GET})
     public String userIndex(Model model,@PathVariable("userId") int userId){
+        //根据userId获取user信息
+        model.addAttribute("anotherUser",userService.getUserById(userId));
         model.addAttribute("vos",getQuestions(userId,0,11));
         //1、读取关注人总数
         long follloweeCount = followService.coutFollowee(userId, EntityType.ENTITY_USER);
@@ -49,16 +58,19 @@ public class IndexController {
             User user = userService.getUserById(Integer.parseInt(str));
             vo.set("user",user);
             //读取该用户的粉丝数目
-            long followerCount = followService.coutFollower(EntityType.ENTITY_USER,user.getId());
+            long followerCount = followService.countFollower(EntityType.ENTITY_USER,user.getId());
             vo.set("followerCount",followerCount);
             //后面待完善
             //统计回答数目
+
             //统计赞同数目
             //统计提问数目
+            int questionCount = questionService.countQuestionByUserId(user.getId());
+            vo.set("questionCount",questionCount);
             //统计赞个数
             users.add(vo);
         }
-        ModelAndView modelAndView = new ModelAndView();
+        model.addAttribute("users",users);
         //modelAndView.
         return "index";
     }

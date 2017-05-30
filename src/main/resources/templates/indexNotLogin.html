@@ -12,49 +12,7 @@
         </div>
     </div>
     <div class="zg-wrap zu-main clearfix " role="main">
-        <div class="zm-profile-section-wrap zm-profile-followee-page">
-            <div class="zm-profile-section-head">
-                    <span class="zm-profile-section-name">
-                        <a href="/user/$anotherUser.id">$anotherUser.name</a> 关注了 $followeeCount 人
-                    </span>
-                <a class="zg-right zg-link-litblue-normal zm-profile-answer-page-return" href="/people/zjuyxy">返回个人主页</a>
-            </div>
-            <div class="zm-profile-section-list">
-                <div id="zh-profile-follows-list">
-                    <div class="zh-general-list clearfix">
-                        #if($users.size()==0)
-                        该用户还没有关注过人
-                        #end
-                        #foreach($user in $users)
-                        <div class="zm-profile-card zm-profile-section-item zg-clear no-hovercard">
-                            <div class="zg-right">
-                                <button class="zg-btn zg-btn-unfollow zm-rich-follow-btn small nth-0">取消关注</button>
-                            </div>
-                            <a title="Barty" class="zm-item-link-avatar" href="/people/buaabarty">
-                                <img src="https://pic2.zhimg.com/3bc6c4dbf50dbce5fa27174f23404849_m.jpg" class="zm-item-img-avatar">
-                            </a>
-                            <div class="zm-list-content-medium">
-                                <h2 class="zm-list-content-title"><a data-tip="p$t$buaabarty" href="/user/$user.user.id" class="zg-link" title="Barty">$user.user.name</a></h2>
-                                <!--
-                                <div class="zg-big-gray">计蒜客教研首席打杂</div>
-                                -->
-                                <div class="details zg-gray">
-                                    <a target="_blank" href="/people/buaabarty/followers" class="zg-link-gray-normal">$user.followerCount 关注者</a>
-                                    /
-                                    <a target="_blank" href="/people/buaabarty/asks" class="zg-link-gray-normal">$user.questionCount 提问</a>
 
-                                    <!--<a target="_blank" href="/people/buaabarty/answers" class="zg-link-gray-normal">21 回答</a>
-
-                                    <a target="_blank" href="/people/buaabarty" class="zg-link-gray-normal">548 赞同</a>-->
-                                </div>
-                            </div>
-                        </div>
-                        #end
-                    </div>
-                    <a aria-role="button" class="zg-btn-white zu-button-more">更多</a>
-                </div>
-            </div>
-        </div>
         <div class="zu-main-content">
         <div class="zu-main-content">
             <div class="zu-main-content-inner">
